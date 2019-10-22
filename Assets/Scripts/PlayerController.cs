@@ -15,7 +15,10 @@ public class PlayerController : MonoBehaviour
     // Start er kaldt inden den første frame update
     void Start()
     {
-        
+        // Gør cursoren usynlig for spilleren
+        Cursor.visible = false;
+        // Centrér cursoren midt i skærmen, så man starter med at have musen i midten af skærmen
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // FixedUpdate bruges til fysik-baserede handlinger, da man kalder denne update på en specifik frame.
