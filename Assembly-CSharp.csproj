@@ -62,13 +62,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AtomMachine.cs" />
     <Compile Include="Assets\Scripts\MouseMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProGrids">
+      <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+      <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -85,23 +95,14 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-      <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids">
-      <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids.Editor">
-      <HintPath>C:/Spil/Unity/UnityAflevering/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

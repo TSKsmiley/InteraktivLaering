@@ -6,10 +6,7 @@ public class MouseMovement : MonoBehaviour
 {
     public Transform tf;
     public Transform tfPlayer;
-
-    public Rigidbody rb;
   
-
     public float mouseSensitity;
 
     // Start er kaldt inden den første frame update
@@ -31,14 +28,9 @@ public class MouseMovement : MonoBehaviour
         Vector3 rotation = new Vector3(-mouseY * mouseSensitity, mouseX * mouseSensitity, 0);
         tf.Rotate(rotation);
 
-        tfPlayer.Rotate(new Vector3(0, rotation.y, 0));
-
         // Med inspiration fra Michaels fysikspil
         float z = tf.eulerAngles.z; // Skaf vinklen z
 
         tf.Rotate(0, 0, -z); // Rotér z i minus
-
-        // Flyt z-aksen tilbage til 0
-        //rb.AddForce(0, 100 * Time.deltaTime, 0);
     }
 }
