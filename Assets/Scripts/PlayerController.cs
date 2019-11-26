@@ -12,30 +12,6 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
 
-    // Grab variabler
-    GameObject grabbedObject;
-    float grabbedObjectSize;
-
-    private void Update()
-    {
-        //Debug.Log(GetMouseHoverObject(5));
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            if (grabbedObject == null)
-                TryGrabObject(GetMouseHoverObject(5));
-            else
-                DropObject();
-        }
-
-        if (grabbedObject != null)
-        {
-            // Nye position
-            Vector3 newPos = gameObject.transform.position + Camera.main.transform.forward * grabbedObjectSize;
-            grabbedObject.transform.position = newPos;
-        }
-    }
-
     // FixedUpdate bruges til fysik-baserede handlinger, da man kalder denne update på en specifik frame.
     private void FixedUpdate()
     {
@@ -50,43 +26,5 @@ public class PlayerController : MonoBehaviour
         
         // Få spilleren til at bevæge sig
         rb.velocity = movement;
-    }
-
-    // Kilde: https://www.youtube.com/watch?v=jOOdJZS987Y
-    GameObject GetMouseHoverObject(float range)
-    {
-        Vector3 position = gameObject.transform.position;
-        RaycastHit raycastHit;
-        Vector3 target = position + Camera.main.transform.forward * range;
-        if (Physics.Linecast(position, target, out raycastHit))
-        {
-            return raycastHit.collider.gameObject;
-        }
-        return null;
-    }
-
-    void TryGrabObject(GameObject grabObject)
-    {
-        if (grabObject == null || !CanGrab(grabObject))
-            return;
-
-        grabbedObject = grabObject;
-        grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size.magnitude;
-    }
-
-    bool CanGrab(GameObject candidate)
-    {
-        // Det som ikke har en rigidbody kan man ikke samle op
-        return candidate.GetComponent<Rigidbody>() != null;
-    }
-
-    void DropObject()
-    {
-        if (grabbedObject == null)
-            return;
-
-        if (grabbedObject.GetComponent<Rigidbody>() != null)
-            grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        grabbedObject = null;
     }
 }
