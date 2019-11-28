@@ -13,7 +13,7 @@ public class MouseMovement : MonoBehaviour
     // Grab variabler
     GameObject grabbedObject;
     float grabbedObjectSize;
-    public TextMeshProUGUI tmpText;
+    public TextMeshProUGUI pickupText;
     [Range(0.0f, 10.0f)] public int pickupRange;
     float pickuptimer;
 
@@ -77,13 +77,13 @@ public class MouseMovement : MonoBehaviour
             if (CanGrab(GetMouseHoverObject(pickupRange)))
             {
                 // Enable teksten som siger: "Press E to pick up"
-                tmpText.enabled = true;
+                pickupText.enabled = true;
             }
         }
         else
         {
             // hvis spilleren er ude af range og ikke kigger på objektet vil teksten ikke vises
-            tmpText.enabled = false;
+            pickupText.enabled = false;
         }
         #endregion GrabObject
     }
@@ -120,6 +120,8 @@ public class MouseMovement : MonoBehaviour
 
         // Slå tyngdekraften fra mens objektet er i hånden på spilleren
         grabbedObject.GetComponent<Rigidbody>().useGravity = false;
+        // Sikrer at objektet ikke roterer mens man har det i hånden
+        grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
 
         // Sæt objektet foran spilleren, lav også et offset fra spillerens position på 1.8f (Dette sikrer at man ikke kolliderer med playermodellen og dermed skaber bugs)
         grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size.magnitude + 1.8f;
@@ -145,6 +147,7 @@ public class MouseMovement : MonoBehaviour
 
         // Når objektet igen er ude af hænderne på spilleren, tilføj da tyngdekraften
         grabbedObject.GetComponent<Rigidbody>().useGravity = true;
+        grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
 
         // Sæt variablen til ingenting, da man ikke længere har fat i et objekt
         grabbedObject = null;
