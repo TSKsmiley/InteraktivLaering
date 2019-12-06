@@ -123,8 +123,8 @@ public class MouseMovement : MonoBehaviour
         // Sikrer at objektet ikke roterer mens man har det i hånden
         grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
 
-        // Sæt objektet foran spilleren, lav også et offset fra spillerens position på 1.8f (Dette sikrer at man ikke kolliderer med playermodellen og dermed skaber bugs)
-        grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size.magnitude + 1.8f;
+        // Sæt objektet foran spilleren, lav også et offset fra spillerens position på 2.2f (Dette sikrer at man ikke kolliderer med playermodellen og dermed skaber bugs)
+        grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size.magnitude + 2.2f;
     }
 
     bool CanGrab(GameObject candidate)

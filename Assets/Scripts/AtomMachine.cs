@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class AtomMachine : MonoBehaviour
 {
     public Transform output;
-    public GameObject redCube;
 
     // Lav en liste fra vores reference til Elements.cs scriptet
     public List<Element> elements = new List<Element>();
+
+    public List<Element> objective = new List<Element>();
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,8 @@ public class AtomMachine : MonoBehaviour
         // Få fat i element scriptet som sidder på det objekt som spilleren få til at kollidere med triggeren
         Element colEl = col.GetComponent<Element>();
 
+        
+
         // Hvis komponentet (scriptet Element) findes
         if (colEl != null)
         {
@@ -35,6 +39,11 @@ public class AtomMachine : MonoBehaviour
 
             // Destruér objektet
             Destroy(col.gameObject);
+
+            if (objective.Contains(colEl))
+            {
+                Debug.Log("true lulw");
+            }
         }
 
         
