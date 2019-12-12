@@ -74,7 +74,7 @@ public class MouseMovement : MonoBehaviour
         if (GetMouseHoverObject(pickupRange) != null)
         {
             // Hvis spilleren kan tage fat i objektet
-            if (CanGrab(GetMouseHoverObject(pickupRange)))
+            if (CanGrab(GetMouseHoverObject(pickupRange)) && grabbedObject == null)
             {
                 // Enable teksten som siger: "Press E to pick up"
                 pickupText.enabled = true;

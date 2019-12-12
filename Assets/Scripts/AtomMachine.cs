@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using TMPro;
 
 public class AtomMachine : MonoBehaviour
 {
     public Transform output;
 
-    // Lav en liste fra vores reference til Elements.cs scriptet
-    public List<Element> elements = new List<Element>();
+    public TextMeshPro healthText;
+    int health = 3;
 
-    public List<Element> objective = new List<Element>();
+    // Lav en liste fra vores reference til Objective.cs scriptet
+    public List<Objective> objectives = new List<Objective>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+           
     }
 
     // Update is called once per frame
@@ -29,23 +31,38 @@ public class AtomMachine : MonoBehaviour
         // Få fat i element scriptet som sidder på det objekt som spilleren få til at kollidere med triggeren
         Element colEl = col.GetComponent<Element>();
 
-        
-
         // Hvis komponentet (scriptet Element) findes
         if (colEl != null)
         {
-            // Tilføj grundstof elementet "Element" til listen 
-            elements.Add(colEl);
-
-            // Destruér objektet
-            Destroy(col.gameObject);
-
-            if (objective.Contains(colEl))
+            foreach (Element item in objectives[0].reqComponents)
             {
-                Debug.Log("true lulw");
+                if (item.shortName == colEl.shortName)
+                {
+                    Debug.Log("true lulw");
+                    objectives[0].reqComponents.Remove(item);
+                    
+                    // Destruér objektet
+                    Destroy(col.gameObject);
+                    return;
+                }
             }
-        }
 
-        
+            // Smid stoffet ud af maskinen, eftersom det ikke matcher de stoffer der skal bruges
+            col.gameObject.transform.position = output.position;
+
+            health--;
+            healthText.text = "";
+            for (int i = 0; i < health; i++)
+            {
+                healthText.text += "d";
+            }
+
+            return;
+        }
+    }
+
+    private void NewObjective(string _fullName, List<string> _objective)
+    {
+
     }
 }
