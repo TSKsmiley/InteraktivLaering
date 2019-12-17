@@ -7,7 +7,8 @@ public class MouseMovement : MonoBehaviour
 {
     public Transform tf;
     public Transform tfPlayer;
-  
+    
+    // Lav en float som kan ændres som en slider inde i unity
     [Range(0.0f, 10.0f)]public float mouseSensitity;
 
     // Grab variabler
@@ -88,14 +89,10 @@ public class MouseMovement : MonoBehaviour
         #endregion GrabObject
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
-
     // Kilde: https://www.youtube.com/watch?v=jOOdJZS987Y
     GameObject GetMouseHoverObject(float range)
     {
+        // Få spillerens position
         Vector3 position = gameObject.transform.position;
         RaycastHit raycastHit;
         Vector3 target = position + Camera.main.transform.forward * range;

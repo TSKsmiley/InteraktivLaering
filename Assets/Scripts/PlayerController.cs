@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    // lav en reference til transformen
     public Transform tf;
 
+    // lav en reference til vores spiller's kamera's transform
     public Transform playerCamTf;
 
     public Rigidbody rb;
@@ -31,8 +33,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Hvis spilleren trykker på R tasten
         if (Input.GetKey(KeyCode.R))
         {
+            // Genindlæs den aktive scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
