@@ -23,14 +23,11 @@ public class AtomMachine : MonoBehaviour
         objectiveText.text = objectives[currObjective].chemicalName;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider col)
     {
+        if (health <= 0)
+            return;
+
         // Få fat i element scriptet som sidder på det objekt som spilleren få til at kollidere med triggeren
         Element colEl = col.GetComponent<Element>();
 
@@ -72,6 +69,11 @@ public class AtomMachine : MonoBehaviour
             for (int i = 0; i < health; i++)
             {
                 healthText.text += "d";
+            }
+
+            if (health <= 0)
+            {
+                objectiveText.text = "You Lost! Press R to restart";
             }
 
             return;

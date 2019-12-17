@@ -10,9 +10,6 @@ public class Element : MonoBehaviour
     // lav en string som kan indeholde grundstoffets forkortelse
     public string shortName; 
 
-    // lav en string som kan indeholde grundstoffets atomnummer
-    public int atomNumber;
-
     // Alt nedenstående er for at gøre det nemt når man skal ændre værdierne, for at få koden til at se renere ud og mere overskuelig
     public Element SetFullName(string _name)
     {
@@ -23,12 +20,6 @@ public class Element : MonoBehaviour
     public Element SetShortName(string _sName)
     {
         shortName = _sName;
-        return this;
-    }
-
-    public Element SetAtomNumber(int _number)
-    {
-        atomNumber = _number;
         return this;
     }
 }

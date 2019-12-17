@@ -64,7 +64,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AtomMachine.cs" />
     <Compile Include="Assets\Scripts\Element.cs" />
-    <Compile Include="Assets\Scripts\ElementObject.cs" />
     <Compile Include="Assets\Scripts\MouseMovement.cs" />
     <Compile Include="Assets\Scripts\Objective.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
