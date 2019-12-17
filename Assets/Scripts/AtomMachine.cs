@@ -8,6 +8,9 @@ public class AtomMachine : MonoBehaviour
 {
     public Transform output;
 
+    public TextMeshPro objectiveText;
+    public int currObjective = 0;
+
     public TextMeshPro healthText;
     int health = 3;
 
@@ -17,7 +20,7 @@ public class AtomMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-           
+        objectiveText.text = objectives[currObjective].chemicalName;
     }
 
     // Update is called once per frame
@@ -34,15 +37,29 @@ public class AtomMachine : MonoBehaviour
         // Hvis komponentet (scriptet Element) findes
         if (colEl != null)
         {
-            foreach (Element item in objectives[0].reqComponents)
+            foreach (Element item in objectives[currObjective].reqComponents)
             {
                 if (item.shortName == colEl.shortName)
                 {
-                    Debug.Log("true lulw");
-                    objectives[0].reqComponents.Remove(item);
+                    objectives[currObjective].reqComponents.Remove(item);
                     
                     // Destruér objektet
                     Destroy(col.gameObject);
+
+                    if (objectives[currObjective].reqComponents.Count < 1)
+                    {
+                        if (currObjective == objectives.Count - 1)
+                        {
+                            objectiveText.text = "You Win!";
+                        }
+                        else
+                        {
+                            currObjective++;
+
+                            objectiveText.text = objectives[currObjective].chemicalName;
+                        }
+                    }
+
                     return;
                 }
             }
@@ -59,10 +76,5 @@ public class AtomMachine : MonoBehaviour
 
             return;
         }
-    }
-
-    private void NewObjective(string _fullName, List<string> _objective)
-    {
-
     }
 }
