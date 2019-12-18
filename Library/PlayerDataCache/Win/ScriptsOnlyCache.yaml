@@ -618,4 +618,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: E:/UnityGames/UnityAflevering/Builds/ChemistryGame.exe
+  playerPath: C:/Spil/Unity/UnityAflevering/Builds/ChemistryGame.exe
